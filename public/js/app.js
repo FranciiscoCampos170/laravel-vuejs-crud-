@@ -1912,7 +1912,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      users: {
+        id: 0,
+        name: '',
+        email: ''
+      },
+      url: '/api/users'
+    };
+  },
+  mounted: function mounted() {
+    this.getUsers();
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      var $this = this;
+      axios.get(this.url).then(function (response) {
+        console.log(response);
+        _this.users = response.data.data;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -19515,9 +19542,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Ola! Component Vue")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", [_c("li")])
+  }
+]
 render._withStripped = true
 
 
@@ -31691,6 +31725,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 Vue.component('Users', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]);
 var app = new Vue({
   el: '#app'
