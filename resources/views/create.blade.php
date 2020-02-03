@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<Create>
 
-   <users>
-
-   </users>
+</Create>
 @endsection

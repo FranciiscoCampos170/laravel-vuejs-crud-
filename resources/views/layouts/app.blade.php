@@ -22,7 +22,7 @@
                 </div>
             @endif
 
-            <div class="container" id="app">
+            <div class="columns" id="app">
                 @yield('content')
             </div>
         </div>
